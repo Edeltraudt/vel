@@ -1,25 +1,21 @@
-import "../../src/vel.css";
+---
+layout: ../layouts/Layout.astro
+title: vel — showcase
+---
 
 # vel — showcase (stub)
 
 Step-3 placeholder. `npm run dev` serves this with HMR; flesh out one section per
-component. This is *showcase + reference*, not test coverage — the rigor lives in
+component. This is _showcase + reference_, not test coverage — the rigor lives in
 the `@web/test-runner` specs.
 
 ## Toast
 
 <vel-toaster id="demo-toaster" duration="4000"></vel-toaster>
 
-<button class="vel-button" onclick="document.getElementById('demo-toaster').toast('Saved', { tone: 'success' })">
-  Fire a toast
+<button
+	class="vel-button"
+	onclick="document.getElementById('demo-toaster').toast('Saved', { tone: 'success' })"
+>
+	{"Fire a toast"}
 </button>
-
-{/* Astro bundles this <script> via Vite and runs it client-side, registering
-    the custom elements. */}
-<script>
-  import "../../src/index.js";
-</script>
-
-{/* TODO(step 3): import ../../custom-elements.json and render an
-    attrs / events / methods table here — the JSDoc-derived reference for
-    humans + AI. ~30 lines, no dependency. */}
