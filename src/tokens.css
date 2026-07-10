@@ -1,0 +1,215 @@
+/* Design tokens. Override any of these in your own `@layer tokens` block to reskin. */
+@layer tokens {
+	:root {
+		/* Spacing scale. Round px at a 16px root; rem so it honours user zoom.
+		   Use these steps for gaps between components. For padding inside a
+		   component, prefer `em` so it scales with the component's own text. */
+		--vel-space-1: 0.25rem; /*  4px */
+		--vel-space-2: 0.5rem; /*  8px */
+		--vel-space-3: 0.75rem; /* 12px */
+		--vel-space-4: 1rem; /* 16px */
+		--vel-space-5: 1.25rem; /* 20px */
+		--vel-space-6: 1.5rem; /* 24px */
+		--vel-space-7: 2rem; /* 32px */
+		--vel-space-8: 2.75rem; /* 44px */
+
+		/* Named layout rhythms. */
+		--vel-space-gutter: var(--vel-space-6); /* page side padding */
+		--vel-space-section: var(--vel-space-8); /* gap between major blocks */
+
+		/* Font families. Override to change every type style below. */
+		--_font-body: ui-sans-serif, system-ui, sans-serif;
+		--_font-ui: ui-sans-serif, system-ui, sans-serif;
+		--_font-heading: ui-sans-serif, system-ui, sans-serif;
+		--_font-title: ui-serif, Georgia, serif;
+
+		/* Type styles. Each is a complete `font` shorthand — apply with
+		   `font: var(--vel-type-body)`. The shorthand does not include
+		   letter-spacing (and resets font-variant); set those separately. */
+		--vel-type-title: 700 3rem/1.1 var(--_font-title);
+		--vel-type-heading-1: 700 2rem/1.2 var(--_font-heading);
+		--vel-type-heading-2: 700 1.5rem/1.25 var(--_font-heading);
+		--vel-type-heading-3: 600 1.25rem/1.3 var(--_font-heading);
+		--vel-type-body: 400 1rem/1.5 var(--_font-body);
+		--vel-type-ui: 500 0.875rem/1.4 var(--_font-ui);
+		--vel-type-label: 600 0.8125rem/1.2 var(--_font-ui);
+		--vel-type-eyebrow: 600 0.75rem/1 var(--_font-ui);
+
+		/* Shape + elevation. */
+		--vel-radius: 0.5rem;
+		--vel-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+
+		/* Colors. Each intent has a seed plus derived roles. Override a seed —
+		   in any format (oklch, hex, named) — and its whole family recomputes. */
+
+		/* Internal: the light/dark hinge (black in light, white in dark) that
+		   `-hover` and `-strong` mix toward, and the inks for solid fills. */
+		--_shade: black;
+		--_ink-light: oklch(0.99 0 0);
+		--_ink-dark: oklch(0.28 0.03 60);
+
+		/* Structural neutrals. separator and border derive from text, so they
+		   track the theme automatically. */
+		--vel-color-base: oklch(0.99 0.002 260); /* page canvas */
+		--vel-color-layer: oklch(1 0 0); /* raised sheet on the canvas */
+		--vel-color-text: oklch(0.22 0.01 260); /* high-contrast ink */
+		--vel-color-text-muted: oklch(0.52 0.01 260); /* secondary ink */
+		--vel-color-separator: color-mix(
+			in oklab,
+			var(--vel-color-text) 10%,
+			transparent
+		); /* soft hairline */
+		--vel-color-border: color-mix(
+			in oklab,
+			var(--vel-color-text) 22%,
+			transparent
+		); /* control outline */
+		--vel-color-neutral-surface: color-mix(
+			in oklab,
+			var(--vel-color-text) 8%,
+			transparent
+		); /* grey chip / well */
+
+		/* Intent seeds. */
+		--vel-color-accent: oklch(0.62 0.19 256);
+		--vel-color-info: oklch(0.62 0.16 240);
+		--vel-color-success: oklch(0.64 0.17 150);
+		--vel-color-warning: oklch(0.8 0.16 80);
+		--vel-color-error: oklch(0.62 0.22 25);
+
+		/* Ink on solid fills. Set per intent because contrast varies with fill lightness. */
+		--vel-color-on-accent: var(--_ink-light);
+		--vel-color-on-info: var(--_ink-light);
+		--vel-color-on-success: var(--_ink-light);
+		--vel-color-on-warning: var(
+			--_ink-dark
+		); /* ex.: light fill → dark ink */
+		--vel-color-on-error: var(--_ink-light);
+
+		/* Derived roles per intent:
+		     -hover    state shift for solid fills
+		     -surface  translucent fill (pills, badges, info boxes)
+		     -border   outline for tinted elements
+		     -strong   opaque colored ink for text/links on a tint or neutral background */
+		--vel-color-accent-hover: color-mix(
+			in oklab,
+			var(--vel-color-accent),
+			var(--_shade) 14%
+		);
+		--vel-color-info-hover: color-mix(
+			in oklab,
+			var(--vel-color-info),
+			var(--_shade) 14%
+		);
+		--vel-color-success-hover: color-mix(
+			in oklab,
+			var(--vel-color-success),
+			var(--_shade) 14%
+		);
+		--vel-color-warning-hover: color-mix(
+			in oklab,
+			var(--vel-color-warning),
+			var(--_shade) 14%
+		);
+		--vel-color-error-hover: color-mix(
+			in oklab,
+			var(--vel-color-error),
+			var(--_shade) 14%
+		);
+
+		--vel-color-accent-surface: color-mix(
+			in oklab,
+			var(--vel-color-accent) 14%,
+			transparent
+		);
+		--vel-color-info-surface: color-mix(
+			in oklab,
+			var(--vel-color-info) 14%,
+			transparent
+		);
+		--vel-color-success-surface: color-mix(
+			in oklab,
+			var(--vel-color-success) 14%,
+			transparent
+		);
+		--vel-color-warning-surface: color-mix(
+			in oklab,
+			var(--vel-color-warning) 14%,
+			transparent
+		);
+		--vel-color-error-surface: color-mix(
+			in oklab,
+			var(--vel-color-error) 14%,
+			transparent
+		);
+
+		--vel-color-accent-border: color-mix(
+			in oklab,
+			var(--vel-color-accent) 32%,
+			transparent
+		);
+		--vel-color-info-border: color-mix(
+			in oklab,
+			var(--vel-color-info) 32%,
+			transparent
+		);
+		--vel-color-success-border: color-mix(
+			in oklab,
+			var(--vel-color-success) 32%,
+			transparent
+		);
+		--vel-color-warning-border: color-mix(
+			in oklab,
+			var(--vel-color-warning) 32%,
+			transparent
+		);
+		--vel-color-error-border: color-mix(
+			in oklab,
+			var(--vel-color-error) 32%,
+			transparent
+		);
+
+		--vel-color-accent-strong: color-mix(
+			in oklab,
+			var(--vel-color-accent),
+			var(--_shade) 42%
+		);
+		--vel-color-info-strong: color-mix(
+			in oklab,
+			var(--vel-color-info),
+			var(--_shade) 42%
+		);
+		--vel-color-success-strong: color-mix(
+			in oklab,
+			var(--vel-color-success),
+			var(--_shade) 42%
+		);
+		--vel-color-warning-strong: color-mix(
+			in oklab,
+			var(--vel-color-warning),
+			var(--_shade) 42%
+		);
+		--vel-color-error-strong: color-mix(
+			in oklab,
+			var(--vel-color-error),
+			var(--_shade) 42%
+		);
+
+		/* Component infra. */
+		--vel-toast-width: 20rem;
+		--vel-z-toast: 1000;
+	}
+
+	/* Dark theme. Only the neutrals and the light/dark hinge are reseeded;
+	   every intent role re-derives from its seed. Override any token above to reskin. */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--_shade: white;
+			--vel-color-base: oklch(0.17 0.005 260);
+			--vel-color-layer: oklch(0.21 0.006 260);
+			--vel-color-text: oklch(0.95 0.005 260);
+			--vel-color-text-muted: oklch(0.68 0.01 260);
+			--vel-shadow: 0 4px 12px rgb(0 0 0 / 0.5);
+		}
+	}
+}
