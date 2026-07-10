@@ -35,9 +35,11 @@
 		--vel-type-label: 600 0.8125rem/1.2 var(--_font-ui);
 		--vel-type-eyebrow: 600 0.75rem/1 var(--_font-ui);
 
-		/* Shape + elevation. */
+		/* Shape + elevation */
 		--vel-radius: 0.5rem;
-		--vel-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+		/* Combines border and drop shadow into a single token.*/
+		--vel-elevation-overlay:
+			0 0 0 1px var(--vel-color-separator), 0 8px 24px rgb(0 0 0 / 0.07);
 
 		/* Colors. Each intent has a seed plus derived roles. Override a seed —
 		   in any format (oklch, hex, named) — and its whole family recomputes. */
@@ -209,7 +211,9 @@
 			--vel-color-layer: oklch(0.21 0.006 260);
 			--vel-color-text: oklch(0.95 0.005 260);
 			--vel-color-text-muted: oklch(0.68 0.01 260);
-			--vel-shadow: 0 4px 12px rgb(0 0 0 / 0.5);
+			--vel-elevation-overlay:
+				0 0 0 1px var(--vel-color-separator),
+				0 8px 24px rgb(0 0 0 / 0.5);
 		}
 	}
 }
