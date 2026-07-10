@@ -1,0 +1,15 @@
+@layer components {
+	.vel-button {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--vel-space-2);
+		padding: var(--vel-space-2) var(--vel-space-4);
+		border: 1px solid transparent;
+		border-radius: var(--vel-radius);
+		background: var(--vel-color-accent);
+		color: var(--vel-color-on-accent);
+		font: inherit;
+		line-height: 1.2;
+		cursor: pointer;
+	}
+}
