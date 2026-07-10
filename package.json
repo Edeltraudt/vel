@@ -1,0 +1,25 @@
+{
+  "name": "vel",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "vanilla web-components design system",
+  "scripts": {
+    "test": "web-test-runner",
+    "test:watch": "web-test-runner --watch",
+    "typecheck": "tsc --noEmit",
+    "manifest": "cem analyze",
+    "manifest:watch": "cem analyze --watch",
+    "dev": "astro dev",
+    "docs:build": "astro build",
+    "check": "npm run manifest && npm run typecheck && npm run test"
+  },
+  "devDependencies": {
+    "@astrojs/mdx": "^7.0.2",
+    "@custom-elements-manifest/analyzer": "^0.11.0",
+    "@open-wc/testing": "^4.0.0",
+    "@web/test-runner": "^1.0.0",
+    "astro": "^7.0.7",
+    "typescript": "^7.0.2"
+  }
+}

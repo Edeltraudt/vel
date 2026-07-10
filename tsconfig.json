@@ -1,0 +1,20 @@
+{
+  // Static half of "API misuse" defense: checkJs over your JSDoc. No emit —
+  // the browser runs the authored .js untouched (see DECISIONS.md).
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    // Custom elements init their fields in connectedCallback, not the ctor.
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "types": []
+  },
+  "include": ["src/**/*.js"],
+  "exclude": ["src/**/*.test.js", "node_modules"]
+}
