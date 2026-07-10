@@ -1,0 +1,19 @@
+# --- Dependencies ---
+node_modules/
+
+# --- Build output ---
+# Astro static site + its generated cache/types
+dist/
+.astro/
+
+# custom-elements.json is the JSDoc-derived API contract read by editors, types,
+# and (later) the MCP server. Regenerate with: npm run manifest
+
+# --- Local / personal tool config ---
+.claude/settings.local.json
+.zed/
+
+# --- OS cruft ---
+.DS_Store
+Thumbs.db
+Desktop.ini
