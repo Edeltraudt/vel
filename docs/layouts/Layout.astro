@@ -1,0 +1,28 @@
+---
+// Frame for every docs page: HTML shell + global CSS, once. Pages set `title`
+// via frontmatter (`layout: ../layouts/Layout.astro`) and render into the slot.
+import "../../src/vel.css"; // the design system under showcase
+import "../app.css"; // docs-only chrome
+
+// MDX pages pass their frontmatter under `frontmatter`; .astro pages pass props direct.
+const { title = "vel" } = Astro.props.frontmatter ?? Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<main>
+			<slot />
+		</main>
+		{/* Registers every custom element once, site-wide. Astro bundles this
+		    via Vite and runs it client-side. */}
+		<script>
+			import "../../src/index.js";
+		</script>
+	</body>
+</html>

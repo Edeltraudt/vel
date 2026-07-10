@@ -1,0 +1,18 @@
+/* Docs-only chrome — not part of the shipped design system (that's src/vel.css).
+   Just enough to keep the showcase readable. */
+
+html {
+	background: var(--vel-color-base);
+}
+
+body {
+	margin: 0;
+	font: var(--vel-type-body);
+	color: var(--vel-color-text);
+}
+
+main {
+	max-width: 48rem;
+	margin-inline: auto;
+	padding: var(--vel-space-gutter);
+}
